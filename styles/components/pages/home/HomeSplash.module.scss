@@ -1,0 +1,224 @@
+@import "styles/base/responsive";
+@import "styles/base/mixins";
+@import "styles/base/variables";
+
+.container {
+    position: relative;
+    padding: 30px 0 60px;
+}
+
+@include respond(768px) {
+    .container {
+        padding: 30px 0 120px;
+    }
+}
+
+@include respond(980px) {
+    .container {
+        padding: 60px 0 200px;
+    }
+}
+
+@include respond(1200px) {
+    .container {
+        padding: 140px 0 200px;
+    }
+}
+
+.content {
+    @include columns;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        width: 1600px;
+        height: 1600px;
+        background-color: $color__secondary;
+        border-radius: 50%;
+        z-index: -1;
+        content: "";
+        transform: translate(0, -70%);
+    }
+
+    * {
+        color: $color__white !important;
+    }
+
+    a {
+        @include text-decoration-flip;
+        font-weight: bold;
+    }
+}
+
+@include respond(768px) {
+    .content {
+        flex-direction: row;
+
+        &::before {
+            top: 0;
+            right: 60%;
+            transform: translate(0, -60%);
+        }
+    }
+}
+
+@include respond(1200px) {
+    .content {
+        &::before {
+            right: 50%;
+        }
+    }
+}
+
+.left {
+    grid-column: 1 / 24;
+    grid-row: 2;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1 / 24;
+    grid-row: 1;
+    margin: 0 0 50px;
+}
+
+@include respond(768px) {
+    .left {
+        grid-row: 1;
+        grid-column: 1 / 12;
+        padding-top: 30px;
+
+        h1 {
+            margin: 0 0 30px;
+        }
+    }
+
+    .right {
+        justify-content: flex-end;
+        grid-column: 13 / 22;
+    }
+}
+
+@include respond(1100px) {
+    .left {
+        grid-column: 2 / 12;
+    }
+}
+
+@include respond(1200px) {
+    .left {
+        grid-column: 4 / 16;
+    }
+
+    .right {
+        grid-column: 17 / 22;
+    }
+}
+
+.intro {
+    line-height: 1.4;
+}
+
+@include respond(980px) {
+    .intro {
+        font-size: 1.25rem;
+    }
+}
+
+@include respond(1200px) {
+    .intro {
+        font-size: 1.5rem;
+    }
+}
+
+.head {
+    position: relative;
+    width: 50%;
+    flex-shrink: 0;
+    max-width: 200px;
+    user-select: none;
+    pointer-events: none;
+
+    &::after {
+        position: absolute;
+        top: 20%;
+        left: 15%;
+        width: 70%;
+        height: 70%;
+        content: "";
+        background-color: $color__secondary;
+        border-radius: 50%;
+        z-index: 0;
+    }
+}
+
+@include respond(768px) {
+    .head {
+        width: 240px;
+        max-width: none;
+    }
+}
+
+@include respond(980px) {
+    .head {
+        width: 300px;
+    }
+}
+
+.headcap {
+    position: absolute;
+    display: none;
+    top: 60%;
+    right: -40%;
+    width: 40%;
+    font-size: 0.8rem;
+    font-family: $font__headings;
+    line-height: 1.2;
+    transform: rotate(20deg);
+
+    &::after {
+        position: absolute;
+        bottom: calc(100% + 5px);
+        left: 0;
+        width: 20px;
+        height: 60px;
+        content: "";
+        background: url('/icons/arrows/curved-long.svg') 50% / contain no-repeat;
+        transform: rotate(-60deg);
+    }
+}
+
+@include respond(360px) {
+    .headcap {
+        display: block;
+    }
+}
+
+@include respond(980px) {
+    .headcap {
+        right: 0;
+        top: calc(100% + 50px);
+        width: auto;
+        font-size: 1.125rem;
+        transform: rotate(5deg);
+
+        &::after {
+            bottom: calc(100% + 15px);
+            left: 60%;
+            transform: none;
+        }
+    }
+}
+
+.canvasContainer {
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 100% !important;
+    height: calc(100% + 150px) !important;
+    z-index: -1;
+}

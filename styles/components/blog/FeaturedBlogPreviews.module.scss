@@ -1,0 +1,60 @@
+@import "styles/base/mixins";
+@import "styles/base/variables";
+
+.container {
+    position: relative;
+    overflow: hidden;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    grid-column: 1 / 24;
+}
+
+@include respond(768px) {
+    .content {
+        grid-column: 2 / 23;
+    }
+}
+
+.title {
+    color: $color__white;
+    text-align: center;
+}
+
+.previews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+@include respond(768px) {
+    .previews {
+        position: relative;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 45px 0 25px;
+
+        &::before,
+        &::after {
+            position: absolute;
+            top: 20px;
+            width: 4px;
+            height: calc(100% - 10px);
+            background: rgba($color__white, .1);
+            content: "";
+            border-radius: 30px;
+        }
+
+        &::before {
+            left: calc((100% / 3) - 2px);
+        }
+
+        &::after {
+            right: calc((100% / 3) - 2px);
+        }
+    }
+}

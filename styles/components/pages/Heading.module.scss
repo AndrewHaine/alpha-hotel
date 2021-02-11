@@ -1,0 +1,66 @@
+@import "styles/base/mixins";
+@import "styles/base/variables";
+
+.container {
+    padding: 20px 0;
+    grid-column: 1 / 24;
+}
+
+@include respond(768px) {
+    .container {
+        grid-column: 3 / 22;
+    }
+}
+
+@include respond(980px) {
+    .container {
+        padding: 20px 0 30px;
+    }
+}
+
+.breadcrumbs {
+    @include reset-list;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@include respond(768px) {
+    .breadcrumbs {
+        margin: 0 0 10px;
+    }
+}
+
+.crumb {
+    margin: 0 5px 5px;
+
+    &:not(:first-child) {
+        display: flex;
+        align-items: center;
+
+        &::before {
+            display: block;
+            width: 6px;
+            height: 6px;
+            content: "";
+            background: $color__secondary;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    }
+
+    a {
+        @include text-decoration-flip;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: $color__white;
+        font-size: .8rem;
+        max-width: 200px;
+    }
+}
+
+.title {
+    text-align: center;
+}

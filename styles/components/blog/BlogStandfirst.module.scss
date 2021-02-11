@@ -1,0 +1,47 @@
+@import "styles/base/mixins";
+@import "styles/base/variables";
+
+.top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    line-height: 1.2;
+    margin: 0 0 20px;
+}
+
+.headshot {
+    position: relative;
+    width: 98px;
+    margin-right: 20px;
+    z-index: 1;
+    transform: scaleX(-1);
+
+    &::after {
+        position: absolute;
+        z-index: -1;
+        background: $color__secondary;
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        content: "";
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.date {
+    display: block;
+    font-size: 1rem;
+    color: $color__grey;
+}
+
+.byline {
+    display: block;
+    font-size: .825rem;
+    font-weight: bold;
+}
+
+.tags {
+    justify-content: flex-start;
+}

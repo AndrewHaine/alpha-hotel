@@ -1,0 +1,48 @@
+@import "styles/base/mixins";
+@import "styles/base/variables";
+
+.btn {
+    display: flex;
+    align-items: center;
+    appearance: none;
+    padding: 5px 15px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: currentColor;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all .2s ease-out;
+}
+
+@include respond(768px) {
+    .btn {
+        font-size: 1.25rem;
+        padding: 5px 20px;
+    }
+}
+
+@include respond(980px) {
+    .btn {
+        font-size: 1.4rem;
+    }
+}
+
+.secondary {
+    color: $color__secondary;
+
+    &:hover {
+        color: $color__white;
+    }
+}
+
+.arrow {
+    width: 23px;
+    margin-left: 10px;
+}
+
+@include respond(768px) {
+    .arrow {
+        width: 30px;
+        margin-left: 20px;
+    }
+}

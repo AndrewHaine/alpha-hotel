@@ -1,0 +1,27 @@
+@import "styles/base/mixins";
+@import "styles/base/variables";
+
+.footer {
+    background-color: $color__primary--dark;
+}
+
+.inner {
+    padding: 40px 0 30px;
+}
+
+.copyright {
+    margin: 6px 0 0;
+    color: $color__white;
+    text-align: center;
+    opacity: .6;
+    font-size: .875rem;
+
+    p {
+        margin: 0;
+
+        a {
+            @include text-decoration-flip;
+            color: $color__white !important;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@import "styles/base/mixins";
+@import "styles/base/variables";
+
+.container {
+    background-color: $color__grey--lightest;
+}
+
+.columns {
+    @include columns;
+}
+
+.content {
+    grid-column: 1 / 24;
+}
+
+@include respond(768px) {
+    .content {
+        grid-column: 2 / 23;
+    }
+}
+
+@include respond(980px) {
+    .content {
+        grid-column: 4 / 21;
+    }
+}
+
+.title {
+    color: $color__primary;
+}

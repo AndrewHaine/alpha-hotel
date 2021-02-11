@@ -1,0 +1,64 @@
+@import "styles/base/responsive";
+@import "styles/base/variables";
+
+.header {
+    padding: 20px 0;
+}
+
+@include respond(480px) {
+    .header {
+        padding: 30px 0;
+    }
+}
+
+@include respond(768px) {
+    .header {
+        padding: 40px 0 30px;
+    }
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link {
+    font-family: $font__headings;
+    color: $color__white;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+@include respond(480px) {
+    .link {
+        font-size: 1.5rem;
+    }
+}
+
+@include respond(980px) {
+    .link {
+        font-size: 1.875rem;
+    }
+}
+
+.logo {
+    position: relative;
+}
+
+@include respond(768px) {
+    .logo {
+        &::after {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            width: 1300px;
+            height: 1300px;
+            content: "";
+            background-color: $color__secondary;
+            border-radius: 50%;
+            z-index: -1;
+            transform: translateX(-55%);
+        }
+    }
+}

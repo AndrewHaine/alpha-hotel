@@ -1,0 +1,14 @@
+html {
+    box-sizing: border-box;
+    font-family: $font__standard;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
